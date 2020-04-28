@@ -1,6 +1,8 @@
 <template>
   <div class="dashboard-container">
-    <div class="dashboard-text">name: {{ name }}</div>
+    <div>用户名:<span class="dashboard-text"> {{ username }}</span></div>
+    <div>昵称:<span class="dashboard-text"> {{ nickname }}</span></div><br>
+    角色:<span class="dashboard-text"> {{ roleName }}</span>
   </div>
 </template>
 
@@ -11,7 +13,9 @@ export default {
   name: 'Dashboard',
   computed: {
     ...mapGetters([
-      'name'
+      'username',
+      'roleName',
+      'nickname'
     ])
   }
 }

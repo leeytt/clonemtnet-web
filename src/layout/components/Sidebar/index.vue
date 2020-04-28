@@ -28,15 +28,16 @@ export default {
   components: { SidebarItem, Logo },
   computed: {
     ...mapGetters([
-      'sidebar'
+      'sidebar',
+      'routers'
     ]),
     routes() {
-      return this.$router.options.routes
+      return this.routers
     },
     activeMenu() {
       const route = this.$route
       const { meta, path } = route
-      // if set path, the sidebar will highlight the path you set
+      // 如果设置路径，侧栏将突出显示您设置的路径
       if (meta.activeMenu) {
         return meta.activeMenu
       }

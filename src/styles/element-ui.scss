@@ -1,4 +1,4 @@
-// cover some element-ui styles
+// 覆盖一些 element-ui 样式
 
 .el-breadcrumb__inner,
 .el-breadcrumb__inner a {
@@ -16,7 +16,7 @@
 }
 
 
-// to fixed https://github.com/ElemeFE/element/issues/2461
+// 固定 https://github.com/ElemeFE/element/issues/2461
 .el-dialog {
   transform: none;
   left: 0;
@@ -24,7 +24,7 @@
   margin: 0 auto;
 }
 
-// refine element ui upload
+// 精制元素ui上传
 .upload-container {
   .el-upload {
     width: 100%;
@@ -36,14 +36,14 @@
   }
 }
 
-// dropdown
+// 下拉
 .el-dropdown-menu {
   a {
     display: block
   }
 }
 
-// to fix el-date-picker css style
+// 修复 el-date-picker css样式
 .el-range-separator {
   box-sizing: content-box;
 }
