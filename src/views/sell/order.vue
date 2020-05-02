@@ -5,13 +5,13 @@
       <div class="toobar">
         <el-form>
           <!-- 搜索 -->
-          <span class="search-title">订单ID：</span>
+          <span class="search-title">订单号：</span>
           <el-input
             v-model="query.orderId"
             clearable
             size="small"
             prefix-icon="el-icon-search"
-            placeholder="输入订单ID搜索"
+            placeholder="输入订单号搜索"
             class="filter-item"
             style="width: 200px"
             @keyup.enter.native="toQuery"
@@ -100,7 +100,7 @@
           <span v-text="getIndex(scope.$index)"></span>
         </template>
       </el-table-column>
-      <el-table-column align="center" label="订单ID" prop="orderId" width="160"></el-table-column>
+      <el-table-column align="center" label="订单号" prop="orderId" width="160"></el-table-column>
       <el-table-column align="center" label="买家姓名" prop="buyerName" style="width: 60px;"></el-table-column>
       <el-table-column align="center" label="手机号" prop="buyerPhone" width="120"></el-table-column>
       <el-table-column

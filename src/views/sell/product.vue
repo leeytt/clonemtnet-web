@@ -138,7 +138,7 @@
       <el-table-column align="center" label="描述" prop="productDescription" width="110"></el-table-column>
       <el-table-column align="center" label="所属类目" prop="category.categoryName" width="110"></el-table-column>
       <el-table-column align="center" label="库存" prop="productStock" style="width: 60px;"></el-table-column>
-      <el-table-column align="center" label="商品是否上架" prop="productStatus" width="100">
+      <el-table-column align="center" label="是否上架" prop="productStatus" width="100">
         <template slot-scope="scope">
           <el-switch
             v-model="scope.row.productStatus"

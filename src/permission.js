@@ -10,7 +10,7 @@ NProgress.configure({ showSpinner: false }) // NProgress配置
 
 const whiteList = ['/login', '/404'] // 白名单，不需要登录即可访问的路由
 
-router.beforeEach(async(to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   // 开始进度条
   NProgress.start()
   // 设置页面标题
@@ -44,13 +44,23 @@ router.beforeEach(async(to, from, next) => {
 
     if (to.path === '/login') {
       // 如果已登录，则重定向到主页
-      next({path: '/'})
+      next({ path: '/' })
       NProgress.done() // 结束Progress
     } else if (!store.getters.role) {
-      // 获取用户信息
-      store.dispatch('user/getUserInfo').then(() => {
-        next({...to})
-      })
+      try {
+        // 获取用户信息
+        await store.dispatch('user/getUserInfo')
+        // next()
+        // store.dispatch('user/getUserInfo').then(() => {
+          next({ ...to })
+        // })
+      } catch (error) {
+        // 删除token，进入登录页面重新登录
+        await store.dispatch('user/resetToken')// 删除令牌
+        Message.error(error || 'Has Error')
+        next(`/login?redirect=${to.path}`)
+        NProgress.done()
+      }
     } else {
       next()
     }
